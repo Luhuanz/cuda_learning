@@ -37,9 +37,13 @@ int main(){
 
 // run kernel
 int threadNum=len_vector; // 设置核函数的thread
+int blockNum=1;
 
 
-vectorAdd(vector_1_gpu,vector_2_gpu,vector_3_gpu,len_vector);
+vectorAdd<<<blockNum,threadNum>>>(vector_1_gpu,vector_2_gpu,vector_3_gpu,len_vector);
+
+//step4: dowanload res
+cudaMemcpy(vector_3,vector_3_gpu,len_vector * sizeof(int), cudaMemcpyDeviceToHost);
 
 
 
