@@ -54,7 +54,7 @@ __host__ void cpu_matrix_mult(float *h_a, float *h_b, float *h_result, int m) {
 //I transform the matrices to square matrix in order to perform better multiplication
 __host__ int fill(float **Lmatrix, float **Rmatrix, int LdimX, int LdimY, int RdimX, int RdimY) {
 
-    int sqr_dim_X, sqr_dim_Y, size;
+    int sqr_dim_X, sqr_dim_Y, size;  //用来存储方阵的行和列的大小
 
     sqr_dim_X = RdimX;
     if (LdimX > RdimX) {
@@ -154,7 +154,7 @@ int main(void)
 {
     //size of the vectors to be processed  and matrix dimensions
     int Left_matrix_x, Left_matrix_y, Right_matrix_x, Right_matrix_y, Left_vector_size, Right_vector_size;
-
+// _d device  _h host
     float *Left_Vector_h, *Right_Vector_h, *Left_Vector_d, *Right_Vector_d, *Res_h, *Res_d, *CPU;  // Pointer to host & device arrays
 
     printf("Enter m n n k :\n");
@@ -167,7 +167,7 @@ int main(void)
     print_matrices(Right_Vector_h,"Input_RHS",Right_matrix_x,Right_matrix_y,dim);
 
     size_t vector_size;
-    vector_size = dim*dim * sizeof(float);
+    vector_size = dim*dim * sizeof(float); // 全部矩阵所需的字节数
 
     Res_h = (float *) malloc(vector_size); // Allocate array on host for result
     CPU = (float *) malloc(vector_size);// Allocate array on host for CPU_matrix_multiplication result
@@ -180,7 +180,7 @@ int main(void)
     cudaMemcpy(Right_Vector_d, Right_Vector_h, vector_size, cudaMemcpyHostToDevice);   // copy values to device
 
     //Block dimension is directly from block_size
-    dim3 Block_dim(BLOCK_SIZE, BLOCK_SIZE);
+    dim3 Block_dim(BLOCK_SIZE, BLOCK_SIZE);//block_size block_size 1
     //Grid dimension is found by dividing matrix dimension to block_size
     dim3 Grid_dim(dim / BLOCK_SIZE, dim / BLOCK_SIZE);
 
