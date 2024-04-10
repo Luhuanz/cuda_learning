@@ -1,0 +1,13 @@
+CUDA Driver/Runtime Version: 显示 CUDA 驱动程序和运行时的版本号分别是 12.0 和 11.8。
+CUDA Capability Major/Minor version number: CUDA 计算能力为 7.5，这是 GPU 架构的特征指标，决定了设备支持的 CUDA 特性。
+Total amount of global memory: GPU 拥有 11012 MB（约 11 GB）的全局内存。
+Multiprocessors and CUDA Cores/MP: 有 68 个多处理器，每个拥有 64 个 CUDA 核心，总计 4352 个 CUDA 核心。
+GPU Max Clock rate: GPU 的最大时钟频率是 1545 MHz。 这代表 GPU 内存（如 GDDR6）的时钟频率。7000 MHz 或 7 GHz 是内存数据传输的速率，决定了 GPU 可以多快地读写其显存。
+Memory Clock rate: 内存时钟频率是 7000 MHz。
+Memory Bus Width: 内存总线宽度为 352 位。 内存总线宽度指的是 GPU 可以同时传输数据的位数。352 位宽度意味着在每个时钟周期内，GPU 可以处理 352 位数据。总线宽度越宽，每次可以传输更多的数据，从而提高数据传输效率和带宽。
+L2 Cache Size: L2 缓存大小为 5,767,168 字节。
+Maximum Texture Dimension Size: 支持的最大纹理维度大小为 1D 纹理 131072 像素，2D 纹理为 131072x65536 像素，3D 纹理为 16384x16384x16384 体素。
+Maximum Layered Texture Size: 支持最大层数为 2048 的层纹理，1D 层纹理最大宽度为 32768 像素，2D 层纹理最大尺寸为 32768x32768 像素。
+Shared memory, constant memory, and registers: 每个块可用的共享内存为 49152 字节，常量内存为 65536 字节，每个块可用的寄存器数量为 65536。
+Warp size, threads, and block/grid dimensions: 每个 warp 的大小为 32，每个多处理器的最大线程数为 1024，每个块的最大线程数也是 1024，线程块和网格的最大维度分别有特定的限制。
+Device features: 支持并发拷贝和内核执行，支持主机页面锁定内存映射，支持计算抢占，协作内核启动，以及多设备协作内核启动等高级特性。
